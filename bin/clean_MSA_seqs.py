@@ -40,7 +40,7 @@ Version:
 		in this GitHub repository: 
 		https://github.com/V-Varga/TrichoCompare/tree/main/AncestralStates
 
-This script was written for Python 3.9.15, in Spyder 5.3.3.
+This script was written for Python 3.9.18, in Spyder 5.4.5.
 
 """
 

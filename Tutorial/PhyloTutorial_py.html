@@ -7530,7 +7530,7 @@ apptainer<span class="w"> </span><span class="nb">exec</span><span class="w"> </
 <h3 id="(Mandatory)-Running-the-container">(<strong>Mandatory</strong>) Running the container<a class="anchor-link" href="#(Mandatory)-Running-the-container">¶</a></h3><p>From this point on, the information in this tutorial actually <em>should</em> be followed. Here, you'll find instructions on how to use the container created for this tutorial and exercise, by modifying your existing <code>run_jupyter.sh</code> script.</p>
 <p>Similarly to what you did for the Sequencing Technologies tutorial, you need to modify the portion of your <code>run_jupyter.sh</code> script that specifies the location of the container you are using.</p>
 <p>In this case, please change the line specifying the path to the container to the following:</p>
-<div class="highlight"><pre><span></span><span class="nv">container</span><span class="o">=</span>/cephyr/users/viragv/Vera/BBT045-2024/Phylogeny/phylo-tutorial-env.sif
+<div class="highlight"><pre><span></span><span class="nv">container</span><span class="o">=</span>/cephyr/NOBACKUP/groups/bbt045_2024/Phylogeny/phylo-tutorial-env.sif
 </pre></div>
 </div>
 </div>
@@ -7564,7 +7564,7 @@ mkdir<span class="w"> </span>Exercise/<span class="w"> </span>Tutorial/
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Obtaining-&amp;-Exploring-Data">Obtaining &amp; Exploring Data<a class="anchor-link" href="#Obtaining-&amp;-Exploring-Data">¶</a></h2><h3 id="Data-Location">Data Location<a class="anchor-link" href="#Data-Location">¶</a></h3><p>All data files that you will need to run this tutorial can be found in the <code>/cephyr/users/viragv/Vera/BBT045-2024/Phylogeny/</code> directory. Materials for the tutorial can be found in the <code>Tutorial/</code> subdirectory, while materials for the homework can be found in the <code>Homework/</code> subdirectory.</p>
 <p>Please copy the files necessary to run the tutorial to your working directory now, like so:</p>
-<div class="highlight"><pre><span></span>cp<span class="w"> </span>/cephyr/users/viragv/Vera/BBT045-2024/Phylogeny/Tutorial/*<span class="w"> </span>PATH/TO/YOUR/PhyloWorkflow/Tutorial/
+<div class="highlight"><pre><span></span>cp<span class="w"> </span><span class="nv">container</span><span class="o">=</span>/cephyr/NOBACKUP/groups/bbt045_2024/Phylogeny/Tutorial/*<span class="w"> </span>PATH/TO/YOUR/PhyloWorkflow/Tutorial/
 </pre></div>
 <h3 id="Preliminary-data-exploration">Preliminary data exploration<a class="anchor-link" href="#Preliminary-data-exploration">¶</a></h3><p>For this tutorial, we will be using the XP_001322682.1__Tvag.fasta file. Take a look!</p>
 <ol>

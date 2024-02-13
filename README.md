@@ -14,9 +14,9 @@ Material for the Phylogenetics module of BBT045, in Python as of 2024
 
 ## Tutorial
 
-Students can find the material for the tutorial [here](./Tutorial/PhyloTutorial_py.html)
+Students can find the material for the tutorial [here](./Tutorial/PhyloTutorial_py.html).
 
 
 ## Exercise
 
-Students can find the material for the homework/exercise here. (Once the material is ready)
+Students can find the material for the homework/exercise [here](./Homework/PhyloHomework_py.html).

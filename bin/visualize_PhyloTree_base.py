@@ -157,7 +157,7 @@ fig = plt.figure(figsize=(70, 40), dpi=100)
 # set axes
 tree_axes = fig.add_subplot(1, 1, 1)
 # plot the tree
-tree_plot = Phylo.draw(spp_tree, label_func=get_label, do_show=False, axes=tree_axes, label_colors=tip_color_dict)
+tree_plot = Phylo.draw(spp_tree, label_func=get_label, do_show=False, show_confidence=False, axes=tree_axes, label_colors=tip_color_dict)
 # ref: https://stackoverflow.com/questions/33147651/biopython-phylogenetic-tree-edit-labels-in-svg-file
 # ref: https://stackoverflow.com/questions/74069786/labels-colors-in-bio-phylo
 

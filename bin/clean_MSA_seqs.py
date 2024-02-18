@@ -76,6 +76,8 @@ with open(input_fasta, "r") as infile, open(output_fasta, "w") as outfile:
 			# remove commas in headers - commas can cause problems with TrimAl
 			header = header.replace(":", "")
 			# remove colons in headers - they cause issues with IQ-TREE
+			header = header.replace("=_", "")
+			# remove any equal signs in the header as these cause issues with IQ-TREE
 			# also need to remove brackets to avoid issues with IQ-TREE
 			# but only some of the brackets - species names are also in brackets
 			bracket_count = header.count("[")

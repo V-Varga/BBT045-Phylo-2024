@@ -7568,9 +7568,10 @@ mkdir<span class="w"> </span>Exercise/<span class="w"> </span>Tutorial/
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Obtaining-&amp;-Exploring-Data">Obtaining &amp; Exploring Data<a class="anchor-link" href="#Obtaining-&amp;-Exploring-Data">¶</a></h2><h3 id="Data-Location">Data Location<a class="anchor-link" href="#Data-Location">¶</a></h3><p>All data files that you will need to run this tutorial can be found in the <code>/cephyr/users/viragv/Vera/BBT045-2024/Phylogeny/</code> directory. Materials for the tutorial can be found in the <code>Tutorial/</code> subdirectory, while materials for the homework can be found in the <code>Homework/</code> subdirectory.</p>
+<h2 id="Obtaining-&amp;-Exploring-Data">Obtaining &amp; Exploring Data<a class="anchor-link" href="#Obtaining-&amp;-Exploring-Data">¶</a></h2><h3 id="Data-Location">Data Location<a class="anchor-link" href="#Data-Location">¶</a></h3><p>All data files that you will need to run this tutorial can be found in the <code>/cephyr/NOBACKUP/groups/bbt045_2024/Phylogeny/</code> directory. Materials for the tutorial can be found in the <code>Tutorial/</code> subdirectory, while materials for the homework can be found in the <code>Homework/</code> subdirectory.</p>
 <p>Please copy the files necessary to run the tutorial to your working directory now, like so:</p>
-<div class="highlight"><pre><span></span>cp<span class="w"> </span><span class="nv">container</span><span class="o">=</span>/cephyr/NOBACKUP/groups/bbt045_2024/Phylogeny/Tutorial/*<span class="w"> </span>PATH/TO/YOUR/PhyloWorkflow/Tutorial/
+<div class="highlight"><pre><span></span>cp<span class="w"> </span>/cephyr/NOBACKUP/groups/bbt045_2024/Phylogeny/Tutorial/*<span class="w"> </span>PATH/TO/YOUR/PhyloWorkflow/Tutorial/
+cp<span class="w"> </span>/cephyr/NOBACKUP/groups/bbt045_2024/Phylogeny/*.py<span class="w"> </span>PATH/TO/YOUR/PhyloWorkflow/Tutorial/
 </pre></div>
 <h3 id="Preliminary-data-exploration">Preliminary data exploration<a class="anchor-link" href="#Preliminary-data-exploration">¶</a></h3><p>For this tutorial, we will be using the XP_001322682.1__Tvag.fasta file. Take a look!</p>
 <ol>
@@ -7638,11 +7639,11 @@ mkdir<span class="w"> </span>Exercise/<span class="w"> </span>Tutorial/
 <blockquote>
 <p><em>Fill in your answer!</em></p>
 </blockquote>
-<p>For the sake of time, I've prepared a cleaning script using Python (<code>clean_MSA_seqs__v1.py</code>). You can use it from the command line like so:</p>
+<p>For the sake of time, I've prepared a cleaning script using Python (<code>clean_MSA_seqs.py</code>). You can use it from the command line like so:</p>
 <div class="highlight"><pre><span></span><span class="c1"># model usage: </span>
 python<span class="w"> </span>clean_MSA_seqs.py<span class="w"> </span>input_fasta
 <span class="c1"># example application: </span>
-python<span class="w"> </span>clean_MSA_seqs.py<span class="w"> </span>XP_001322682.1__MSprepp.fasta
+python<span class="w"> </span>clean_MSA_seqs.py<span class="w"> </span>XP_001322682.1__MSAprep.fasta
 </pre></div>
 </div>
 </div>

@@ -7570,7 +7570,7 @@ mkdir<span class="w"> </span>Exercise/<span class="w"> </span>Tutorial/
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Obtaining-&amp;-Exploring-Data">Obtaining &amp; Exploring Data<a class="anchor-link" href="#Obtaining-&amp;-Exploring-Data">¶</a></h2><h3 id="Data-Location">Data Location<a class="anchor-link" href="#Data-Location">¶</a></h3><p>All data files that you will need to run this tutorial can be found in the <code>/cephyr/NOBACKUP/groups/bbt045_2024/Phylogeny/</code> directory. Materials for the tutorial can be found in the <code>Tutorial/</code> subdirectory, while materials for the homework can be found in the <code>Homework/</code> subdirectory.</p>
 <p>Please copy the files necessary to run the tutorial to your working directory now, like so:</p>
-<div class="highlight"><pre><span></span>cp<span class="w"> </span>/cephyr/NOBACKUP/groups/bbt045_2024/Phylogeny/Tutorial/*<span class="w"> </span>PATH/TO/YOUR/PhyloWorkflow/Tutorial/
+<div class="highlight"><pre><span></span>cp<span class="w"> </span>-r<span class="w"> </span>/cephyr/NOBACKUP/groups/bbt045_2024/Phylogeny/Tutorial/*<span class="w"> </span>PATH/TO/YOUR/PhyloWorkflow/Tutorial/
 cp<span class="w"> </span>/cephyr/NOBACKUP/groups/bbt045_2024/Phylogeny/*.py<span class="w"> </span>PATH/TO/YOUR/PhyloWorkflow/Tutorial/
 </pre></div>
 <h3 id="Preliminary-data-exploration">Preliminary data exploration<a class="anchor-link" href="#Preliminary-data-exploration">¶</a></h3><p>For this tutorial, we will be using the XP_001322682.1__Tvag.fasta file. Take a look!</p>
@@ -7801,10 +7801,6 @@ python<span class="w"> </span>clean_MSA_seqs.py<span class="w"> </span>XP_001322
 <span class="c1"># -wbtl Like -wbt but bootstrap trees written with branch lengths. DEFAULT: OFF</span>
 <span class="c1"># -T AUTO: allows IQ-TREE to auto-select the ideal number of threads</span>
 <span class="c1"># -ntmax: set the maximum number of threads that IQ-TREE can use</span>
-<span class="c1"># -B specifies the number of bootstrap replicates where 1000 is the minimum number recommended</span>
-<span class="c1">###</span>
-<span class="c1"># note that 1 year ago, MFP identified LG+R5 as the ideal algorithm</span>
-<span class="c1"># which is still pretty close!</span>
 </pre></div>
 </div>
 </div>
@@ -7831,6 +7827,24 @@ python<span class="w"> </span>clean_MSA_seqs.py<span class="w"> </span>XP_001322
 <blockquote>
 <p><em>Fill in your answer!</em></p>
 </blockquote>
+<p>Note that another important element of tree building is <em>bootstrapping</em> (there's more information on this topic later in the tutorial). Unfortunately, bootstrapping is an <em>extremely</em> resource-intensive process, so for the same of time, I have prepared 4 bootstrapped trees for you, in the <code>/cephyr/NOBACKUP/groups/bbt045_2024/Phylogeny/Tutorial/BootstrapEx/</code> directory, which you have likely already copied over.</p>
+<p>If you would like to run the bootstrapping yourself, please do so! Simply remove the first line of the following cell to make it runnable. You can also copy/paste the following code into a new terminal in Jupyter Lab, to leave it running in the background.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">script</span> false --no-raise-error
+! iqtree -s XP_001322682.1__MSA.fasta --prefix XP_001322682.1__MSA_IQ -m LG+I+R5 -seed 12345 -wbtl -B 1000 -T AUTO -ntmax 2
+# -B specifies the number of bootstrap replicates where 1000 is the minimum number recommended
+</pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -8007,14 +8021,14 @@ CIAlign<span class="w"> </span>--infile<span class="w"> </span>XP_001322682.1__M
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Bootstapping">Bootstapping<a class="anchor-link" href="#Bootstapping">¶</a></h2><p>If you look carefully at the IQ-TREE command you used, you'll notice that one of the arguments (<code>-B 1000</code>) tells IQ-TREE to the run the tree generation with bootstrapping.</p>
+<h2 id="Bootstapping">Bootstapping<a class="anchor-link" href="#Bootstapping">¶</a></h2><p>If you look carefully at the IQ-TREE command options, you'll notice that one of the arguments (<code>-B 1000</code>) tells IQ-TREE to run the tree generation with bootstrapping.</p>
 <ol start="13">
 <li>What is bootstrapping/bootstrap support? Why does it matter?</li>
 </ol>
 <blockquote>
 <p><em>Fill in your answer!</em></p>
 </blockquote>
-<p>It's possible to display bootsrap values on phylogenetic trees with the <code>Bio.Phylo.draw()</code> command. Take a look at the <code>visualize_PhyloTree_base.py</code> script, and modify it to add this feature. (Remember to also modify the output file name, so you don't overwrite your previous files!) Save the modified version of the file as <code>visualize_PhyloTree_bootstrap.py</code>, and run it on all of your treefiles.</p>
+<p>It's possible to display bootstrap values on phylogenetic trees with the <code>Bio.Phylo.draw()</code> command. Take a look at the <code>visualize_PhyloTree_base.py</code> script, and modify it to add this feature. (Remember to also modify the output file name, so you don't overwrite your previous files!) Save the modified version of the file as <code>visualize_PhyloTree_bootstrap.py</code>, and run it on the treefiles that have bootstraps.</p>
 <ol start="14">
 <li>What do you observe, looking at the bootstrapping? Are there any notable patterns?</li>
 </ol>

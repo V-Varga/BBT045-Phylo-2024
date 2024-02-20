@@ -7653,7 +7653,22 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Creating-the-Tree">Creating the Tree<a class="anchor-link" href="#Creating-the-Tree">¶</a></h2><p>Now it's time to create a phylogenetic tree. Since you're less pressed for time than you were in-class, use the model finder option of IQ-TREE, if you wish. However, if you'd prefer to use the same tree model as you did during the tutorial, that's fine, too! Write the code below:</p>
+<h2 id="Creating-the-Tree">Creating the Tree<a class="anchor-link" href="#Creating-the-Tree">¶</a></h2><p>Now it's time to create a phylogenetic tree. Since you're less pressed for time than you were in-class, use the model finder option of IQ-TREE, if you wish. However, if you'd prefer to use the same tree model as you did during the tutorial, that's fine, too!</p>
+<p>As you may remember from the in-class tutorial, it has turned out to be rather difficult to run IQ-TREE from within Jupyter Lab, as the program will only be able to access 1 core, even if you've booked two. Therefore, I will instead ask you to run a <em>batch job</em>.</p>
+<p>While we have not discussed them in much detail, batch jobs are what we call the jobs submitted to the backend of an HPC (in this case, Vera) using the SLURM job scheduling system. In order to run IQ-TREE as a batch job, please follow these steps:</p>
+<ul>
+<li>Copy the batch script template named <code>sbatch_iqtree.sh</code> from the <code>/cephyr/NOBACKUP/groups/bbt045_2024/Phylogeny/Homework/</code> directory back to your working directory.</li>
+<li>Modify the <code>sbatch_iqtree.sh</code> file that you have copied to your working directory, by filling in the necessary information:<ul>
+<li>Your Chalmers email (line 7)</li>
+<li>The full path to your working directory (i.e., where this Jupyter Notebook and your homework files are) (line 34)</li>
+<li>The name of your cleaned MSA file (line 41)</li>
+<li>The prefix/file base name you want the IQ-TREE output files to have (line 61)</li>
+</ul>
+</li>
+<li>Submit the batch script with <code>sbatch sbatch_iqtree.sh</code> in your <em>regular</em> Vera terminal (i.e., <em>not</em> from within a terminal you open in Jupyter Lab)</li>
+<li>Make a record of the job ID that is printed in your terminal when you submit your job. This job ID is necessary in order to be able to trace back any errors/issues, or cancel a running job.</li>
+</ul>
+<p>In the cell below, fill in the job ID that was printed out when you submitted the job:</p>
 </div>
 </div>
 </div>
@@ -7665,7 +7680,9 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#Fill in your code here!</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">script</span> false --no-raise-error
+sbatch sbatch_iqtree.sh
+# FILL IN WHAT TEXT IS RETURNED ON THE COMMAND LINE HERE
 </pre></div>
 </div>
 </div>

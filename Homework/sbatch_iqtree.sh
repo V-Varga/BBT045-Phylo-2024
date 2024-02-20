@@ -59,7 +59,7 @@ cp $MSA_FILE $WORKING_TMP
 
 ### Running IQ-TREE
 apptainer exec $CONTAINER_LOC iqtree -s $MSA_FILE --prefix <WRITE YOUR FILE BASE NAME HERE> \
--m MFP -seed 12345 -wbtl -T AUTO -ntmax 8
+-m MFP -seed 12345 -wbtl -T AUTO -ntmax 3;
 
 
 ### Copy relevant files back, SLURM_SUBMIT_DIR is set by SLURM

@@ -2,7 +2,7 @@
 
 #SBATCH -A C3SE2023-2-17 -p vera
 #SBATCH -n 3
-#SBATCH -t 02:00:00
+#SBATCH -t 03:00:00
 #SBATCH -J muscle
 #SBATCH --mail-user=<WRITE YOUR CHALMERS EMAIL HERE>
 #SBATCH --mail-type=ALL
